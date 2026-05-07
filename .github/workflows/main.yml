@@ -1,4 +1,4 @@
-name: My First Workflow
+name: CI Workflow
 
 on:
   push:
@@ -6,18 +6,17 @@ on:
       - main
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print message
-        run: echo "GitHub Actions is working!"
-        
-      - name: Show date
-        run: date
-    
-      - name: List files
-        run: ls
-    
-      - name: Print message
-        run: echo "Learning GitHub Actions"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14'
+
+      - name: Run Python script
+        run: python get_started.py
