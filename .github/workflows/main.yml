@@ -12,3 +12,12 @@ jobs:
     steps:
       - name: Print message
         run: echo "GitHub Actions is working!"
+        
+      - name: Show date
+        run: date
+    
+      - name: List files
+        run: ls
+    
+      - name: Print message
+        run: echo "Learning GitHub Actions"
